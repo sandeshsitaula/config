@@ -1,6 +1,5 @@
-### PATH - DONT COPY MY PATH - COPY YOUR OWN
 export PATH=$HOME/bin:/usr/local/bin:/snap/bin:/opt/bin:$PATH
-
+#for showing current working directory
 PS1='%n@%m %~$ '
 ### ZSH HOME
 export ZSH=$HOME/.zsh
@@ -19,7 +18,6 @@ setopt HIST_IGNORE_ALL_DUPS
 
 # History won't show duplicates on search.
 setopt HIST_FIND_NO_DUPS
-
 ### ---- PLUGINS & THEMES -----------------------------------
 source $ZSH/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -37,18 +35,21 @@ alias ls="exa"
 alias ll="exa -alh"
 alias tree="exa --tree"
 
-alias cat="bat"
-
+alias cat="bat -p"
+alias gitrun=/home/sandesh/script/gitrun.sh
  #fzf configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --color=never --hidden' 
+##########################
+#for case insensitivity matching
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+autoload -Uz compinit && compinit
 
 #custom path 
 export PATH=$PATH:/home/sandesh/go/bin
 export PATH=$PATH:/home/.zsh/plugins/fzf-zsh-plugin/bin 
-
  export PATH=$PATH:"/home/sandesh/Downloads/Lapce"
  PATH=$PATH:"/home/sandesh/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/sandesh/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
