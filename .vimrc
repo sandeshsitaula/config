@@ -48,6 +48,7 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 set encoding=UTF-8
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -189,6 +190,8 @@ augroup NeoformatAutoFormat
 augroup END
 
 
+
+
 function! InsertTabWrapper()
   if pumvisible()
     return "\<c-n>"
@@ -200,4 +203,6 @@ function! InsertTabWrapper()
     return "\<c-x>\<c-o>"
   endif
 endfunction
-inoremap <expr><tab> InsertTabWrapper()
+inoremap <expr><c-i> InsertTabWrapper()
+
+
