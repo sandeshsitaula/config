@@ -42,7 +42,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec x-terminal-emulator
-bindsym $mod+Return exec x-terminal-emulator
+bindsym $mod+Return exec st
 # kill focused window
 bindsym $mod+q kill
 
@@ -68,6 +68,8 @@ bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
+
+bindsym $mod+o  move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
@@ -87,8 +89,11 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+bindsym $mod+t fullscreen toggle
+
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
+bindsym $mod+s exec --no-startup-id cd ~/script && ./dir.sh
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
