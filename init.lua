@@ -85,13 +85,14 @@ require('packer').startup(function()
     use 'maxmellon/vim-jsx-pretty'
     use {'sonph/onehalf', rtp = 'vim'}
     use 'RRethy/nvim-base16'
-    use {'styled-components/vim-styled-components', branch = 'main'}
 end)
 
 -- Colorscheme
 vim.cmd 'colorscheme gruvbox'
 
 -- Key mappings
+vim.api.nvim_set_keymap('n', '<C-S-C>', '"+y', { noremap = true })
+vim.api.nvim_set_keymap('v', '<C-S-C>', '"+y', { noremap = true })
 vim.api.nvim_set_keymap('n', '<c-s>', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<c-s>', '<c-o>:w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-x>', '<esc>:qa!<cr>', { noremap = true, silent = true })
@@ -116,9 +117,7 @@ vim.api.nvim_set_keymap('n', '<silent> gi', '<Plug>(coc-implementation)', {})
 vim.api.nvim_set_keymap('n', '<silent> gr', '<Plug>(coc-references)', {})
 
 -- Use <Tab> and <S-Tab> to navigate through popup menu
-vim.api.nvim_set_keymap('i', '<TAB>', 'pumvisible() ? "<C-n>" : v:lua.check_backspace() ? "<TAB>" : coc#refresh()', { noremap = true, silent = true, expr = true })
-vim.api.nvim_set_keymap('i', '<S-TAB>', 'pumvisible() ? "<C-p>" : "<C-h>"', { noremap = true, silent = true, expr = true })
-
+vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? (complete_info().selected == -1 ? "\\<C-n>" : "\\<C-n>\\<C-y>") : "\\<Tab>"', { expr = true, noremap = true, silent = true })
 function _G.check_backspace()
     local col = vim.fn.col('.') - 1
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
@@ -147,3 +146,6 @@ augroup NeoformatAutoFormat
 augroup END
 ]]
 
+vim.api.nvim_set_keymap('n', '<C-p>', ':FZF<CR>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-p>', ':FZF<CR>', { noremap = true })
+vim.api.nvim_set_keymap('v', '<C-p>', ':FZF<CR>', { noremap = true })
