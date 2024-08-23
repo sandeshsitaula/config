@@ -91,13 +91,12 @@ end)
 vim.cmd 'colorscheme gruvbox'
 
 -- Key mappings
-vim.api.nvim_set_keymap('n', '<C-S-C>', '"+y', { noremap = true })
-vim.api.nvim_set_keymap('v', '<C-S-C>', '"+y', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-C>', '"+y', { noremap = true })
+vim.api.nvim_set_keymap('v', '<C-C>', '"+y', { noremap = true })
 vim.api.nvim_set_keymap('n', '<c-s>', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<c-s>', '<c-o>:w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-x>', '<esc>:qa!<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-x>', ':qa!<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<C-Z>', '<c-o>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<silent> <C-p>', ':Files<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<F5>', ':buffers<cr>:b<space>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-a>', ':buffers<cr>:b<space>', { noremap = true, silent = true })
