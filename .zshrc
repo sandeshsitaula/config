@@ -8,10 +8,10 @@ export ZSH=$HOME/.zsh
 export HISTFILE=$ZSH/.zsh_history
 
 # How many commands zsh will load to memory.
-export HISTSIZE=500
+export HISTSIZE=1000
 
 # How many commands history will save on file.
-export SAVEHIST=1000
+export SAVEHIST=5000
 
 # History won't save duplicates.
 setopt HIST_IGNORE_ALL_DUPS
@@ -33,6 +33,9 @@ alias gorun=/home/sandesh/script/gorun.sh
 alias ls="exa"
 alias ll="exa -alh"
 alias tree="exa --tree"
+alias sgit="~/scripts/gitswitch.sh"
+alias audiofixer="~/scripts/audiofixer.sh"
+alias cd="z"
 
 #alias cat="bat -p"
  #fzf configuration
@@ -43,12 +46,39 @@ export FZF_ALT_C_COMMAND='fd --type d --color=never --hidden'
 ##########################
 #for case insensitivity matching
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' completer _complete _match
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=**' 'l:|=* r:|=*'
+
 autoload -Uz compinit && compinit
 
 #custom path 
 export PATH=$PATH:/home/sandesh/go/bin
 export PATH=$PATH:/home/.zsh/plugins/fzf-zsh-plugin/bin 
+export PATH=$PATH:/home/sandesh/Downloads/node-v20.17.0-linux-x64/bin
+export PATH=$PATH:/root/.local/bin
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+export PATH=$ANDROID_HOME/emulator:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
 
-setxkbmap -option caps:escape
+export PATH=$PATH:/usr/NX/bin
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
-alias wifi_correct=/home/sandesh/script/wifi_correct.sh
+
+eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "/home/sandesh/.bun/_bun" ] && source "/home/sandesh/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/sandesh/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
