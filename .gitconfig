@@ -1,0 +1,15 @@
+[user]
+	name = sandeshsitaula
+	email = navaltajohan@gmail.com
+
+[core]
+	pager = delta
+
+[interactive]
+	navigate = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default

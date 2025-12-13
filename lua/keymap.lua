@@ -29,3 +29,11 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':FZF<CR>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-p>', ':FZF<CR>', { noremap = true })
 vim.api.nvim_set_keymap('v', '<C-p>', ':FZF<CR>', { noremap = true })
 
+
+local opts = { noremap = true, silent = true }
+
+vim.api.nvim_set_keymap("n", "fr", ":FlutterReload<CR>", opts)
+vim.api.nvim_set_keymap("n", "fs", ":FlutterRestart<CR>", opts)
+vim.api.nvim_set_keymap("n", "fd", ":FlutterDevices<CR>", opts)
+vim.api.nvim_set_keymap("n", "fq", ":FlutterQuit<CR>", opts)
+

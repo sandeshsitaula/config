@@ -1,0 +1,12 @@
+lazydocker
+lazygit
+batcat
+navi -> (.local/share/navi/cheats/*)
+ripgrep -> rg
+tealdeer ->tldr
+dua 
+pass
+git-delta
+croc
+asciinema
+jrnl
