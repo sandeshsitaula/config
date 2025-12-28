@@ -10,7 +10,9 @@ map('i', '<C-x>', '<esc>:qa!<cr>', opts)
 map('n', '<C-x>', ':qa!<cr>', opts)
 map('n', '<C-p>', ':Files<CR>', opts)
 map('n', '<F5>', ':buffers<cr>:b<space>', opts)
-map('n', '<C-a>', ':buffers<cr>:b<space>', opts)
+
+-- will be using snipe so replacing it for now
+-- map('n', '<C-a>', ':buffers<cr>:b<space>', opts)
 
 -- Disable arrow keys
 for _, key in ipairs({'<Up>', '<Down>', '<Left>', '<Right>'}) do
@@ -26,14 +28,10 @@ map('n', '<silent> gi', '<Plug>(coc-implementation)', {})
 map('n', '<silent> gr', '<Plug>(coc-references)', {})
 
 vim.api.nvim_set_keymap('n', '<C-p>', ':FZF<CR>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-p>', ':FZF<CR>', { noremap = true })
 vim.api.nvim_set_keymap('v', '<C-p>', ':FZF<CR>', { noremap = true })
 
 
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap("n", "fr", ":FlutterReload<CR>", opts)
-vim.api.nvim_set_keymap("n", "fs", ":FlutterRestart<CR>", opts)
-vim.api.nvim_set_keymap("n", "fd", ":FlutterDevices<CR>", opts)
-vim.api.nvim_set_keymap("n", "fq", ":FlutterQuit<CR>", opts)
 
+vim.keymap.set("n", "<C-a>", require("snipe").open_buffer_menu, { desc = "Open Snipe buffer menu" })

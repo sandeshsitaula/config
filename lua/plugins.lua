@@ -55,37 +55,14 @@ require('packer').startup(function(use)
       commit = "3d08501caef2329aba5121b753e903904088f7e6", -- Pin to v3.5.4
       dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- Add dependency
     }
-
-    -- Flutter tools (only Flutter dev tools, not LSP setup since you're using CoC)
-use {
-  'akinsho/flutter-tools.nvim',
-  requires = {
-    'nvim-lua/plenary.nvim',
-  },
-  config = function()
-    require("flutter-tools").setup {
-      ui = {
-        border = "rounded",
-      },
-      widget_guides = {
-        enabled = true,
-      },
-      closing_tags = {
-        enabled = true,
-        prefix = "// ",
-        highlight = "Comment",
-      },
-      lsp = {
-        enabled = false, -- disable LSP because you're using CoC
-      },
-      dev_log = {
-        enabled = true,
-        open_cmd = "vsplit", -- or "tabedit", "split"
-      },
-    }
-  end
-}
-
+  -- Add snipe.nvim
+  use {
+    'leath-dub/snipe.nvim',
+    config = function()
+      require("snipe").setup()
+      -- Optional: keymapping
+    end
+  }
 
 
 end)
