@@ -89,4 +89,28 @@ function! RunJsTsFormatter()
 endfunction
 ]]
 
+require('kanagawa').setup({
+    compile = true,             -- Faster startup
+    undercurl = true,           -- Nice curly underlines for errors
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
+    typeStyle = {},
+    transparent = false,        -- Keeps the deep "ink" background
+    dimInactive = true,         -- Helps focus by dimming other splits
+    terminalColors = true,      -- Keeps terminal colors consistent
+    colors = {
+        theme = {
+            all = {
+                ui = {
+                    bg_gutter = "none" -- Invisible line number column
+                }
+            }
+        }
+    },
+    theme = "dragon", 
+})
 
+-- Load it
+vim.cmd("colorscheme kanagawa-dragon")
