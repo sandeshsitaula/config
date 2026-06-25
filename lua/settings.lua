@@ -25,6 +25,8 @@ vim.o.cmdheight = 2
 vim.o.background = 'dark'
 vim.o.encoding = 'UTF-8'
 vim.o.omnifunc = 'syntaxcomplete#Complete'
+vim.opt.ignorecase = true  -- Ignore case when searching
+vim.opt.smartcase = true   -- Case-sensitive if search contains uppercase
 
 -- Enable filetype plugins and indentation
 vim.cmd 'filetype plugin indent on'
